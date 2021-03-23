@@ -19,4 +19,15 @@ const caesarCipher = (str, shiftAmount) => {
   
     return encryptedStr;
   };
+
   
+  // Direction can be 'left' or 'right'. If invalid direction passed, it will consider it as right shift
+  const caesarShift = (str, direction, amount) => {
+    if (direction.toLowerCase() === 'left') {
+        return caesarCipher(str, 26 - Math.abs(amount));
+    } else {
+         return caesarCipher(str, Math.abs(amount));
+    }
+}
+
+module.exports = caesarShift;
